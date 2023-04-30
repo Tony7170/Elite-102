@@ -10,12 +10,14 @@ print("--Welcome to my bank!--")
 
 repeat = True
 
-testQuery = ('SELECT Balance FROM info')
-balance = cursor.execute(testQuery)
-balance = int(balance)
-acc_balance = [balance]
-acc_balance = sum(acc_balance)
-  
+# testQuery = ('SELECT Balance FROM info')
+# balance = cursor.execute(testQuery)
+# balance = int(balance)
+# acc_balance = [balance]
+# acc_balance = sum(acc_balance)
+
+acc_balance = []  
+
 def deposit():
     print("**Depositing**")
     print("------------------")
@@ -43,7 +45,7 @@ def withdraw():
     
 while repeat:
     
-    prompt = input("What can I help you with today? ")
+    prompt = input("What can I help you with today?(deposit, withdraw) ")
   
     if 'balance' in prompt:
       print (acc_balance)
@@ -60,14 +62,14 @@ while repeat:
       print("Choose 'balance', 'deposit', 'withdraw', or 'nothing'")
     
 
-cursor.execute(testQuery)
+# cursor.execute(testQuery)
 
-for item in cursor:
+# for item in cursor:
 
-    print(item)
+#     print(item)
 
-cursor.close()
+# cursor.close()
 
-connection.close()
+# connection.close()
 
  

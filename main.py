@@ -1,8 +1,8 @@
-import mysql.connector
+# import mysql.connector
 
-connection = mysql.connector.connect(user='root', database='bank', password='antonio2008.')
+# connection = mysql.connector.connect(user='root', database='bank', password='antonio2008.')
 
-cursor = connection.cursor()
+# cursor = connection.cursor()
 
 import random
 

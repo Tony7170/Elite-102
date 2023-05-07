@@ -1,20 +1,21 @@
 import mysql.connector
 
-connection = mysql.connector.connect(user='root', database='bank', password='antonio2008.')
+conn = mysql.connector.connect(user='root', database='bank', password='antonio2008.')
 
-cursor = connection.cursor()
+cursor = conn.cursor()
 
-testQuery = ('SELECT Balance FROM info')
+acc_bal = 100
 
-cursor.execute(testQuery)
+testQuery = ("UPDATE info SET Balance = (%s)")
 
-for item in cursor:
-    for x in item:
-        if x.isdigit:
-            balance = x
+cursor.execute(testQuery, (acc_bal,))
+
+conn.commit()
+
+balance = cursor.fetchall()
 
 print(balance)
 
 cursor.close()
 
-connection.close()
+conn.close()

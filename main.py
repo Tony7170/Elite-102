@@ -1,20 +1,15 @@
-# import mysql.connector
+import mysql.connector
 
-# connection = mysql.connector.connect(user='root', database='bank', password='antonio2008.')
+conn = mysql.connector.connect(user='root', database='bank', password='antonio2008.')
 
-# cursor = connection.cursor()
+cursor = conn.cursor()
 
 import random
 
 print("--Welcome to my bank!--")
 
+global repeat
 repeat = True
-
-# testQuery = ('SELECT Balance FROM info')
-# balance = cursor.execute(testQuery)
-# balance = int(balance)
-# acc_balance = [balance]
-# acc_balance = sum(acc_balance)
 
 acc_balance = []  
 
@@ -27,7 +22,6 @@ def deposit():
     new_bal = sum(acc_balance)
   
     print(f'Your balance is now {new_bal}!')
-    return
   
 def withdraw():
     wit_amt = int(input("How much would you like to withdraw? "))
@@ -40,7 +34,6 @@ def withdraw():
       acc_balance.clear()
       acc_balance.append(new_bal)
       print(f'Your balance is now {new_bal}.')
-    return
     
     
 while repeat:
@@ -58,18 +51,18 @@ while repeat:
   
     elif 'nothing' in prompt:
       print("Goodbye!")
+      repeat = False
+      break
     else:
       print("Choose 'balance', 'deposit', 'withdraw', or 'nothing'")
-    
 
-# cursor.execute(testQuery)
+balance = acc_balance[0]
+updateBal = ("UPDATE info SET Balance = (%s)")
+cursor.execute(updateBal, (balance,))
+conn.commit()
 
-# for item in cursor:
+cursor.close()
 
-#     print(item)
-
-# cursor.close()
-
-# connection.close()
+conn.close()
 
  

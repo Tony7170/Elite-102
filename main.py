@@ -48,7 +48,7 @@ while repeat:
     prompt = input("What can I help you with today?(deposit, withdraw) ")
   
     if 'balance' in prompt:
-      print (acc_balance)
+      print (sum(acc_balance))
   
     elif 'deposit' in prompt:
       deposit()

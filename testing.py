@@ -4,17 +4,14 @@ conn = mysql.connector.connect(user='root', database='bank', password='antonio20
 
 cursor = conn.cursor()
 
-acc_bal = 100
+testQuery = ("SELECT Balance From info")
+cursor.execute(testQuery)
 
-testQuery = ("UPDATE info SET Balance = (%s)")
+result = cursor.fetchone()[0]
 
-cursor.execute(testQuery, (acc_bal,))
+print (result)
 
 conn.commit()
-
-balance = cursor.fetchall()
-
-print(balance)
 
 cursor.close()
 

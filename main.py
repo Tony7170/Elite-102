@@ -11,7 +11,14 @@ print("--Welcome to my bank!--")
 global repeat
 repeat = True
 
+selectBal = ("SELECT Balance From info")
+cursor.execute(selectBal)
+
+savedBal = cursor.fetchone()[0]
+
 acc_balance = []  
+
+acc_balance.append(savedBal)
 
 def deposit():
     print("**Depositing**")

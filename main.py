@@ -28,7 +28,7 @@ def deposit():
     acc_balance.append(dep_amt)
     new_bal = sum(acc_balance)
   
-    print(f'Your balance is now {new_bal}!')
+    print(f'Your balance is now ${new_bal}!')
   
 def withdraw():
     wit_amt = int(input("How much would you like to withdraw? "))
@@ -48,7 +48,8 @@ while repeat:
     prompt = input("What can I help you with today?(deposit, withdraw) ")
   
     if 'balance' in prompt:
-      print (sum(acc_balance))
+      print_bal = (sum(acc_balance))
+      print(f"Your balance is ${print_bal}")
   
     elif 'deposit' in prompt:
       deposit()

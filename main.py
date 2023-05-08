@@ -40,7 +40,7 @@ def withdraw():
       new_bal = balance - wit_amt
       acc_balance.clear()
       acc_balance.append(new_bal)
-      print(f'Your balance is now {new_bal}.')
+      print(f'Your balance is now ${new_bal}.')
     
     
 while repeat:
